@@ -245,6 +245,8 @@ select[id="provinsi"] {
 
 textarea{
   background-color: #ffffff;
+  resize: none;
+  width: 100%; 
 }
 #message {
   color: #be2424;
@@ -368,8 +370,9 @@ textarea{
 
 iframe {  
   border: none;
-  width:100%;
+  width:80%;
   height:380px;
+  border-radius: 8px;
 }
 
 h1 {
@@ -414,8 +417,8 @@ p {
 }
 
 .formcontact {
-  width: 100%;
-  max-width: 800px;
+  width: 60%;
+  
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -563,7 +566,39 @@ input[type="submit"].dark-mode:hover {
   color: #ff7777;
 }
 
+.fa:hover {
+  opacity: 0.7;
+}
 
+.fa-facebook {
+background: #3B5998;
+color: white;
+padding: 16px;
+}
+
+.fa-google {
+  background: #3B5998;
+  color: white;
+  padding: 16px;
+}
+
+.fa-linkedin {
+  background: #3B5998;
+  color: white;
+  padding: 16px;
+}
+
+.fa-youtube {
+  background: #3B5998;
+  color: white;
+  padding: 16px;
+}
+
+.fa-instagram{
+  background: #3B5998;
+  color: white;
+  padding: 16px;
+  }
 
 .dark-mode .container h1 {
   color: #ff6363;

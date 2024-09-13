@@ -43,7 +43,7 @@ document.getElementById('dark-mode-toggle').addEventListener('click', function()
     document.querySelector('input[type="submit"]').classList.toggle('dark-mode');
     document.getElementById('message-info').classList.toggle('dark-mode');
 });
-
+//mengecek data kota yang di input apakah tersedia atau tidak
 function checkAvailability() {
     const kota = document.getElementById('nama-kota').value;
     const resultDiv = document.getElementById('result');
@@ -54,15 +54,15 @@ function checkAvailability() {
     } else {
         // Simulate an availability check
         if (kota=== "surakarta") {
-            resultDiv.textContent = "Second Choice avaible at your area!";
+            resultDiv.textContent = "IndoMedia avaible at your area!";
             resultDiv.style.color = "green";
         } else {
-            resultDiv.textContent = "Sorry, Second Choice not avaible in your area.";
+            resultDiv.textContent = "Sorry, IndoMedia not avaible in your area.";
             resultDiv.style.color = "red";
         }
     }
 }
-
+//mengirimkan data ke backend jika sudah lolos validasi
 document.getElementById("form").addEventListener("submit", function() {
 
 
@@ -77,8 +77,8 @@ document.getElementById("form").addEventListener("submit", function() {
     const notelp = document.getElementById("notelp").value.trim();
  
 
-    // memvalidasi data
-    if (nameD === "" || namaB === "" || notelp === "" ) {
+    // memvalidasi data bagian front end
+    if (nameD == "" || namaB == "" || notelp == "" ) {
         messageElement.textContent = "Please fill in all fields.";
         messageElement.className = "error";
     }  else if (!validatePhone(notelp)) {
@@ -98,8 +98,9 @@ function validatePhone(notelp) {
     return phonePattern.test(notelp);
 }
 
-const apiKey = '5fc69caa0771ec2512584f5715235ee1';  // Replace with your actual API key
-    const cityId = '1625812'; // City ID for the API request
+//api untuk menampilkan cuaca
+const apiKey = '5fc69caa0771ec2512584f5715235ee1';  
+    const cityId = '1625812'; 
     const apiUrl = `http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${apiKey}&units=metric`;
 
     fetch(apiUrl)
@@ -110,11 +111,11 @@ const apiKey = '5fc69caa0771ec2512584f5715235ee1';  // Replace with your actual 
             return response.json();
         })
         .then(data => {
-            // Display data in the frontend
+            
             const weatherDiv = document.getElementById('weather');
             weatherDiv.innerHTML = '';
 
-            const forecastList = data.list.slice(0, 1); // Show 5 blocks of forecast
+            const forecastList = data.list.slice(0, 1); 
             forecastList.forEach(forecast => {
                 const date = new Date(forecast.dt * 1000).toLocaleString();
                 const temp = forecast.main.temp;
